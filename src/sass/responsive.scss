@@ -2,12 +2,16 @@
    #nav {
       width: 100%;
       top: 60px;
+      .nav-right{
+         display: none;
+      }
       ul {
          text-align: center;
          width: 100%;
          margin-top: 30px;
          li {
             width: 100%;
+            padding-top: 10px;
          }
       }
       .burger_menu {

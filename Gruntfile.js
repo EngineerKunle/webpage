@@ -6,8 +6,8 @@ module.exports = function (grunt) {
       //set paths
       path: {
          css: {
-            src: 'src/sass/style.scss',
-            dist: 'build/styles/style.css',
+            src: 'src/sass/common.scss',
+            dist: 'build/css/common.css',
             all: 'src/sass/**/*.scss'
          },
          html: {
@@ -18,11 +18,12 @@ module.exports = function (grunt) {
          },
          img: {
             src: 'src/images/**/*',
-            dist: 'dist/images'
+            dist: 'build/images'
          },
          js: {
             src: 'src/js/*.js',
-            dist: 'build/js/'
+            dist: 'build/js/',
+            all: 'src/js/**/*.js'
          }
       },
       pkg: grunt.file.readJSON('package.json'),
@@ -106,7 +107,14 @@ module.exports = function (grunt) {
             options: {
                spawn: false,
             },
-         }
+         },
+         js:{
+            files:['<%= path.js.all %>'],
+            tasks:['copy:js'],
+            options: {
+               spawn: false,
+            },
+         },
       }
    });
 
