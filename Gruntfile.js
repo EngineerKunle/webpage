@@ -3,12 +3,35 @@ module.exports = function (grunt) {
    'use strict';
    // Project configuration.
    grunt.initConfig({
+      //set paths
+      path: {
+         css: {
+            src: 'src/sass/style.scss',
+            dist: 'build/styles/style.css',
+            all: 'src/sass/**/*.scss'
+         },
+         html: {
+            //will need to change the path of this if new page is needed
+            src: 'src/html/index.html',
+            dist: 'build/html/',
+            all: 'src/html/**/*.html'
+         },
+         img: {
+            src: 'src/images/**/*',
+            dist: 'dist/images'
+         },
+         js: {
+            src: 'src/js/*.js',
+            dist: 'build/js/'
+         }
+      },
       pkg: grunt.file.readJSON('package.json'),
       //sass compiling 
       sass: {
          dist: {
             options: {
-               sourcemap: 'none'
+               sourcemap: 'none',
+               noCache: true
             },
             files: {
                'build/css/common.css': 'src/sass/common.scss'
@@ -17,14 +40,72 @@ module.exports = function (grunt) {
          }
 
       },
-      
+
       //server to run 
       connect: {
          server: {
             options: {
-               port: 9001,
-               base: 'src/html/index.html'
+               port: 8000,
+               base: {
+                  path: 'build'
+               }
             }
+         }
+      },
+
+      //this is for the build process
+      copy: {
+         html: {
+            files: [
+          // includes files within path
+               {
+                  expand: true,
+                  src: ['<%= path.html.src %>'],
+                  dest: '<%= path.html.dist %>',
+                  filter: 'isFile',
+                  flatten: true
+               },
+        ],
+         },
+         img: {
+            files: [
+          // includes files within path
+               {
+                  expand: true,
+                  src: ['<%= path.img.src %>'],
+                  dest: '<%= path.img.dist %>',
+                  flatten: true
+               },
+        ],
+         },
+         js: {
+            files: [
+          // includes files within path
+               {
+                  expand: true,
+                  src: ['<%= path.js.src %>'],
+                  dest: '<%= path.js.dist %>',
+                  flatten: true
+               },
+        ],
+         }
+      },
+
+      //watch sass files
+      watch: {
+         styles: {
+            files: ['<%= path.css.all %>'],
+            tasks: ['sass'],
+            options: {
+               spawn: false,
+            },
+         },
+         html: {
+            files: ['<%= path.html.all %>'],
+            tasks: ['copy:html'],
+            options: {
+               spawn: false,
+            },
          }
       }
    });
@@ -32,9 +113,12 @@ module.exports = function (grunt) {
    // Load the plugin that provides the "uglify" task.
    grunt.loadNpmTasks('grunt-contrib-sass');
    grunt.loadNpmTasks('grunt-contrib-connect');
+   grunt.loadNpmTasks('grunt-contrib-watch');
+   grunt.loadNpmTasks('grunt-contrib-copy');
 
    // Default task(s).
    grunt.registerTask('default', ['sass']);
-   grunt.registerTask('watch', ['sass', 'connect']);
+   grunt.registerTask('dev', ['sass', 'copy', 'watch']);
+   grunt.registerTask('build', ['copy', 'sass', 'watch'])
 
 };
