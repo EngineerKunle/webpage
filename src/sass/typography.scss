@@ -1,17 +1,22 @@
 //google fonts 
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,300,700italic,400,300italic);
-
-body{
+body {
    font-family: $font-family;
    font-weight: 400;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: $font-family;
-  font-weight: 700;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-family: $font-family;
+   font-weight: 700;
 }
 
-p{
+p {
    font-family: $font-family;
-  font-weight: 700;
+   font-weight: 400;
+   line-height: 30px;
 }

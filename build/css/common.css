@@ -40,29 +40,36 @@ body {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400; }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 700; }
 
 p {
   font-family: "Source Sans Pro", sans-serif;
-  font-weight: 700; }
+  font-weight: 400;
+  line-height: 30px; }
 
 body {
-  box-sizing: border-box;
-  max-width: 1360px;
-  margin: 0 auto;
-  padding: 0 50px 0 50px; }
+  box-sizing: border-box; }
 
 #nav {
   width: 100%;
+  margin: 0 auto;
   height: 80px;
-  margin-top: 40px; }
+  margin-top: 40px;
+  padding-left: 50px;
+  padding-right: 50px;
+  box-sizing: border-box; }
   #nav .nav-right {
     display: block; }
   #nav h3 {
     font-size: 40px;
-    color: #5FCF80;
+    color: #777777;
     float: left; }
   #nav ul {
     list-style-type: none;
@@ -74,22 +81,146 @@ body {
       padding-left: 40px;
       float: right; }
   #nav .burger_menu {
-    display: none; }
+    display: none;
+    font-size: 50px; }
+
+#content {
+  background: #199fce;
+  width: 100%;
+  height: 450px;
+  box-sizing: border-box;
+  padding: 20px 0;
+  color: #fff;
+  background-image: url(../images/Kunle2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%; }
+  #content .dev_pic {
+    display: block;
+    width: 20%;
+    margin: 0 auto;
+    -webkit-border-radius: 85px;
+    -moz-border-radius: 85px;
+    border-radius: 85px; }
+  #content .title {
+    text-align: center; }
+    #content .title p {
+      width: 300px;
+      margin: 0 auto;
+      margin-top: 10px;
+      padding: 10px 0; }
+
+#about {
+  margin-top: 20px;
+  text-align: center; }
+  #about p {
+    width: 600px;
+    margin: 0 auto; }
+
+#blogs {
+  margin-top: 20px;
+  padding-top: 20px;
+  text-align: center;
+  background-color: #f6f9fa; }
+  #blogs .blog {
+    width: 20%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px; }
+  #blogs p {
+    margin: 0 auto; }
 
 @media only screen and (max-width: 800px) {
   #nav {
     width: 100%;
-    top: 60px; }
+    top: 60px;
+    margin-bottom: 50px; }
+    #nav.nav-setHeight {
+      height: 200px; }
+    #nav h3 {
+      font-size: 36px;
+      float: none;
+      text-align: center; }
     #nav .nav-right {
       display: none; }
     #nav ul {
       text-align: center;
-      width: 100%;
-      margin-top: 30px; }
+      width: 100%; }
+      #nav ul.active {
+        display: block;
+        animation-name: slideDown;
+        -webkit-animation-name: slideDown;
+        animation-duration: 1s;
+        -webkit-animation-duration: 1s;
+        animation-timing-function: ease;
+        -webkit-animation-timing-function: ease;
+        visibility: visible !important; }
       #nav ul li {
         width: 100%;
         padding-top: 10px; }
     #nav .burger_menu {
-      padding-top: 50px;
+      padding-top: 15px;
       text-align: center;
-      display: block; } }
+      display: block; }
+
+   /*
+==============================================
+slideDown
+==============================================
+*/
+  @keyframes slideDown {
+    0% {
+      transform: translateY(-100%); }
+    50% {
+      transform: translateY(8%); }
+    65% {
+      transform: translateY(-4%); }
+    80% {
+      transform: translateY(4%); }
+    95% {
+      transform: translateY(-2%); }
+    100% {
+      transform: translateY(0%); } }
+  @-webkit-keyframes slideDown {
+    0% {
+      -webkit-transform: translateY(-100%); }
+    50% {
+      -webkit-transform: translateY(8%); }
+    65% {
+      -webkit-transform: translateY(-4%); }
+    80% {
+      -webkit-transform: translateY(4%); }
+    95% {
+      -webkit-transform: translateY(-2%); }
+    100% {
+      -webkit-transform: translateY(0%); } }
+  #content {
+    color: #fff; }
+    #content .dev_pic {
+      display: block;
+      width: 50%;
+      margin: 0 auto; }
+    #content .title {
+      font-size: 28px; }
+
+  #about h2 {
+    font-size: 24px; }
+  #about p {
+    width: 80%;
+    font-size: 18px;
+    text-align: justify; }
+
+  #blogs .blog {
+    width: 40%; }
+  #blogs h2 {
+    font-size: 24px; }
+  #blogs p {
+    width: 80%;
+    font-size: 18px;
+    margin: 0 auto;
+    text-align: justify; } }
+@media only screen and (max-width: 400px) {
+  #nav {
+    margin-bottom: 50px; }
+    #nav h3 {
+      font-size: 34px; } }

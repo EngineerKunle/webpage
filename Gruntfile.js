@@ -103,14 +103,14 @@ module.exports = function (grunt) {
          },
          html: {
             files: ['<%= path.html.all %>'],
-            tasks: ['copy:html'],
+            tasks: ['copy:html','copy:img'],
             options: {
                spawn: false,
             },
          },
          js:{
             files:['<%= path.js.all %>'],
-            tasks:['copy:js'],
+            tasks:['copy:js', 'copy:img'],
             options: {
                spawn: false,
             },

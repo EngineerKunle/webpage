@@ -1,23 +1,131 @@
+//will aim to put all css responsiveness in here.s
 @media only screen and (max-width: 800px) {
    #nav {
       width: 100%;
       top: 60px;
-      .nav-right{
+      margin-bottom: 50px;
+      &.nav-setHeight {
+         height: 200px;
+      }
+      h3 {
+         font-size: 36px;
+         float: none;
+         text-align: center;
+      }
+      .nav-right {
          display: none;
       }
       ul {
          text-align: center;
          width: 100%;
-         margin-top: 30px;
+         &.active {
+            display: block;
+            animation-name: slideDown;
+            -webkit-animation-name: slideDown;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            animation-timing-function: ease;
+            -webkit-animation-timing-function: ease;
+            visibility: visible !important;
+         }
          li {
             width: 100%;
             padding-top: 10px;
          }
       }
       .burger_menu {
-         padding-top: 50px;
+         padding-top: 15px;
          text-align: center;
          display: block;
+      }
+   }
+   /*
+==============================================
+slideDown
+==============================================
+*/
+   @keyframes slideDown {
+      0% {
+         transform: translateY(-100%);
+      }
+      50% {
+         transform: translateY(8%);
+      }
+      65% {
+         transform: translateY(-4%);
+      }
+      80% {
+         transform: translateY(4%);
+      }
+      95% {
+         transform: translateY(-2%);
+      }
+      100% {
+         transform: translateY(0%);
+      }
+   }
+   @-webkit-keyframes slideDown {
+      0% {
+         -webkit-transform: translateY(-100%);
+      }
+      50% {
+         -webkit-transform: translateY(8%);
+      }
+      65% {
+         -webkit-transform: translateY(-4%);
+      }
+      80% {
+         -webkit-transform: translateY(4%);
+      }
+      95% {
+         -webkit-transform: translateY(-2%);
+      }
+      100% {
+         -webkit-transform: translateY(0%);
+      }
+   }
+   #content {
+      color: $white;
+      .dev_pic {
+         display: block;
+         width: 50%;
+         margin: 0 auto;
+      }
+      .title {
+         font-size: 28px;
+      }
+   }
+   #about {
+      h2 {
+         font-size: 24px;
+      }
+      p {
+         width: 80%;
+         font-size: 18px;
+         text-align: justify;
+      }
+   }
+   #blogs {
+      .blog {
+         width: 40%;
+      }
+      h2{
+        font-size: 24px;
+      }
+      p {
+         width: 80%;
+         font-size: 18px;
+         margin: 0 auto;
+         text-align: justify;
+      }
+   }
+}
+
+@media only screen and (max-width: 400px) {
+   #nav {
+      margin-bottom: 50px;
+      h3{
+         font-size: 34px;
       }
    }
 }
