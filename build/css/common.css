@@ -49,21 +49,28 @@ h6 {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 700; }
 
+h2 {
+  font-size: 28px;
+  padding-bottom: 10px; }
+
 p {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
-  line-height: 30px; }
+  line-height: 30px;
+  font-size: 18px;
+  text-align: justify; }
 
 body {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background-color: #f6f9fa; }
 
 #nav {
   width: 100%;
   margin: 0 auto;
-  height: 80px;
-  margin-top: 40px;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding: 40px 25px 0px;
+  background-color: #e0e0e0;
   box-sizing: border-box; }
   #nav .nav-right {
     display: block; }
@@ -85,12 +92,14 @@ body {
     font-size: 50px; }
 
 #content {
-  background: #199fce;
   width: 100%;
-  height: 450px;
   box-sizing: border-box;
   padding: 20px 0;
   color: #fff;
+  padding-left: 50px;
+  padding-right: 50px;
+  box-sizing: border-box;
+  height: 480px;
   background-image: url(../images/Kunle2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -120,21 +129,25 @@ body {
 #blogs {
   margin-top: 20px;
   padding-top: 20px;
-  text-align: center;
-  background-color: #f6f9fa; }
+  text-align: center; }
   #blogs .blog {
     width: 20%;
     display: block;
     margin: 0 auto;
     margin-top: 30px; }
   #blogs p {
-    margin: 0 auto; }
+    text-align: center; }
+
+#projects {
+  margin-top: 20px;
+  padding-top: 20px;
+  text-align: center; }
 
 @media only screen and (max-width: 800px) {
   #nav {
     width: 100%;
     top: 60px;
-    margin-bottom: 50px; }
+    padding-bottom: 50px; }
     #nav.nav-setHeight {
       height: 200px; }
     #nav h3 {
