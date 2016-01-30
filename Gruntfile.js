@@ -23,7 +23,8 @@ module.exports = function (grunt) {
          js: {
             src: 'src/js/*.js',
             dist: 'build/js/',
-            all: 'src/js/**/*.js'
+            all: 'src/js/**/*.js',
+            final: 'build/js/app.js'
          }
       },
       pkg: grunt.file.readJSON('package.json'),
@@ -35,11 +36,27 @@ module.exports = function (grunt) {
                noCache: true
             },
             files: {
-               'build/css/common.css': 'src/sass/common.scss'
+               'src/css/common.css': 'src/sass/common.scss'
             }
 
          }
 
+      },
+      //minifying css
+      cssmin: {
+         target: {
+            files: {
+               'build/css/common.css': 'src/css/common.css'
+            }
+         }
+      },
+      //minifying JS
+      uglify: {
+         my_target: {
+            files: {
+               '<%= path.js.final %>': '<%= path.js.src %>'
+            }
+         }
       },
 
       //server to run 
@@ -78,17 +95,6 @@ module.exports = function (grunt) {
                   flatten: true
                },
         ],
-         },
-         js: {
-            files: [
-          // includes files within path
-               {
-                  expand: true,
-                  src: ['<%= path.js.src %>'],
-                  dest: '<%= path.js.dist %>',
-                  flatten: true
-               },
-        ],
          }
       },
 
@@ -103,18 +109,18 @@ module.exports = function (grunt) {
          },
          html: {
             files: ['<%= path.html.all %>'],
-            tasks: ['copy:html','copy:img'],
+            tasks: ['copy:html', 'copy:img'],
             options: {
                spawn: false,
             },
          },
-         js:{
-            files:['<%= path.js.all %>'],
-            tasks:['copy:js', 'copy:img'],
+         js: {
+            files: ['<%= path.js.all %>'],
+            tasks: 'uglify',
             options: {
                spawn: false,
             },
-         },
+         }
       }
    });
 
@@ -123,10 +129,12 @@ module.exports = function (grunt) {
    grunt.loadNpmTasks('grunt-contrib-connect');
    grunt.loadNpmTasks('grunt-contrib-watch');
    grunt.loadNpmTasks('grunt-contrib-copy');
+   grunt.loadNpmTasks('grunt-contrib-cssmin');
+   grunt.loadNpmTasks('grunt-contrib-uglify');
 
    // Default task(s).
    grunt.registerTask('default', ['sass']);
-   grunt.registerTask('dev', ['sass', 'copy', 'watch']);
+   grunt.registerTask('dev', ['sass', 'cssmin', 'copy', 'uglify', 'watch']);
    grunt.registerTask('build', ['copy', 'sass', 'watch'])
 
 };

@@ -3,7 +3,11 @@ body {
    -webkit-box-sizing: border-box;
    -moz-box-sizing: border-box;
    background-color: $site-grey;
-   //max-width: 1360px; 
+}
+
+p {
+   color: $site-grey-light;
+   font-size: 24px;
 }
 
 #nav {
@@ -25,10 +29,15 @@ body {
       margin: 0;
       padding: 10px 0;
       width: 100%;
-      font-size: 20px;
-      li {
+      font-size: 23px;
+      li a {
+         color: $black;
          padding-left: 40px;
          float: right;
+         text-decoration: none;
+         &:hover {
+            color: $white;
+         }
       }
    }
    .burger_menu {
@@ -62,7 +71,7 @@ body {
    .title {
       text-align: center;
       p {
-         width: 300px;
+         width: 900px;
          margin: 0 auto;
          margin-top: 10px;
          padding: 10px 0;
@@ -74,7 +83,7 @@ body {
    margin-top: 20px;
    text-align: center;
    p {
-      width: 600px;
+      width: 900px;
       margin: 0 auto;
    }
 }
@@ -84,7 +93,7 @@ body {
    padding-top: 20px;
    text-align: center;
    .blog {
-      width: 20%;
+      width: 17%;
       display: block;
       margin: 0 auto;
       margin-top: 30px;
@@ -98,4 +107,11 @@ body {
    margin-top: 20px;
    padding-top: 20px;
    text-align: center;
+   .screen {
+      width: 15%;
+   }
+   p {
+      width: 900px;
+      margin: 0 auto;
+   }
 }
