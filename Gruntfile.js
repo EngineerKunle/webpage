@@ -102,7 +102,7 @@ module.exports = function (grunt) {
       watch: {
          styles: {
             files: ['<%= path.css.all %>'],
-            tasks: ['sass'],
+            tasks: ['sass' ,'cssmin'],
             options: {
                spawn: false,
             },

@@ -148,13 +148,29 @@ p {
 
 #projects {
   margin-top: 20px;
-  padding-top: 20px;
+  padding: 20px 0px;
   text-align: center; }
   #projects .screen {
     width: 15%; }
   #projects p {
     width: 900px;
+    padding-top: 20px;
     margin: 0 auto; }
+    #projects p:last-child {
+      text-align: center; }
+    #projects p a {
+      color: #5FCF80;
+      text-decoration: none; }
+
+footer {
+  margin: 0 auto;
+  background-color: #199fce;
+  padding: 20px 0px;
+  text-align: center; }
+  footer h2 {
+    color: #fff; }
+  footer .row img {
+    padding-left: 20px; }
 
 @media only screen and (max-width: 800px) {
   #nav {
@@ -254,4 +270,7 @@ slideDown
   #nav {
     margin-bottom: 0px; }
     #nav h3 {
-      font-size: 34px; } }
+      font-size: 34px; }
+
+  #projects .screen {
+    width: 40%; } }

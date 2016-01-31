@@ -105,13 +105,36 @@ p {
 
 #projects {
    margin-top: 20px;
-   padding-top: 20px;
+   padding: 20px 0px;
    text-align: center;
    .screen {
       width: 15%;
    }
    p {
       width: 900px;
+      padding-top: 20px;
       margin: 0 auto;
+      &:last-child{
+         text-align: center;
+      }
+      a{
+         color: $site-green;
+         text-decoration: none;
+      }
+   }
+}
+
+footer{
+   margin: 0 auto;
+   background-color: $light-blue;
+   padding: 20px 0px;
+   text-align: center;
+   h2{
+     color: $white; 
+   }
+   .row{
+      img{
+         padding-left: 20px;
+      }
    }
 }
