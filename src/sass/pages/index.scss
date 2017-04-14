@@ -1,20 +1,27 @@
 body {
    box-sizing: border-box;
-   max-width: 1360px;
-   margin: 0 auto;
-   padding: 0 50px 0 50px;
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   background-color: $site-grey;
+}
+
+p {
+   color: $site-grey-light;
+   font-size: 24px;
 }
 
 #nav {
    width: 100%;
-   height: 80px;
-   margin-top: 40px;
+   margin: 0 auto;
+   padding: 40px 25px 0px;
+   background-color: $hero-grey;
+   box-sizing: border-box;
    .nav-right {
       display: block;
    }
    h3 {
       font-size: 40px;
-      color: #5FCF80;
+      color: $site-grey-light;
       float: left;
    }
    ul {
@@ -22,13 +29,112 @@ body {
       margin: 0;
       padding: 10px 0;
       width: 100%;
-      font-size: 20px;
-      li {
+      font-size: 23px;
+      li a {
+         color: $black;
          padding-left: 40px;
          float: right;
+         text-decoration: none;
+         &:hover {
+            color: $white;
+         }
       }
    }
    .burger_menu {
       display: none;
+      font-size: 50px;
+   }
+}
+
+#content {
+   //background: $light-blue;
+   width: 100%;
+   box-sizing: border-box;
+   padding: 20px 0;
+   color: $white;
+   padding-left: 50px;
+   padding-right: 50px;
+   box-sizing: border-box;
+   height: 480px;
+   background-image: url(../images/Kunle2.jpg);
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: 50% 50%;
+   .dev_pic {
+      display: block;
+      width: 20%;
+      margin: 0 auto;
+      -webkit-border-radius: 85px;
+      -moz-border-radius: 85px;
+      border-radius: 85px;
+   }
+   .title {
+      text-align: center;
+      p {
+         width: 900px;
+         margin: 0 auto;
+         margin-top: 10px;
+         padding: 10px 0;
+      }
+   }
+}
+
+#about {
+   margin-top: 20px;
+   text-align: center;
+   p {
+      width: 900px;
+      margin: 0 auto;
+   }
+}
+
+#blogs {
+   margin-top: 20px;
+   padding-top: 20px;
+   text-align: center;
+   .blog {
+      width: 17%;
+      display: block;
+      margin: 0 auto;
+      margin-top: 30px;
+   }
+   p {
+      text-align: center;
+   }
+}
+
+#projects {
+   margin-top: 20px;
+   padding: 20px 0px;
+   text-align: center;
+   .screen {
+      width: 15%;
+   }
+   p {
+      width: 900px;
+      padding-top: 20px;
+      margin: 0 auto;
+      &:last-child{
+         text-align: center;
+      }
+      a{
+         color: $site-green;
+         text-decoration: none;
+      }
+   }
+}
+
+footer{
+   margin: 0 auto;
+   background-color: $light-blue;
+   padding: 20px 0px;
+   text-align: center;
+   h2{
+     color: $white; 
+   }
+   .row{
+      img{
+         padding-left: 20px;
+      }
    }
 }

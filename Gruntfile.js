@@ -23,7 +23,8 @@ module.exports = function (grunt) {
          js: {
             src: 'src/js/*.js',
             dist: 'build/js/',
-            all: 'src/js/**/*.js'
+            all: 'src/js/**/*.js',
+            final: 'build/js/app.js'
          }
       },
       pkg: grunt.file.readJSON('package.json'),
@@ -35,11 +36,27 @@ module.exports = function (grunt) {
                noCache: true
             },
             files: {
-               'build/css/common.css': 'src/sass/common.scss'
+               'src/css/common.css': 'src/sass/common.scss'
             }
 
          }
 
+      },
+      //minifying css
+      cssmin: {
+         target: {
+            files: {
+               'build/css/common.css': 'src/css/common.css'
+            }
+         }
+      },
+      //minifying JS
+      uglify: {
+         my_target: {
+            files: {
+               '<%= path.js.final %>': '<%= path.js.src %>'
+            }
+         }
       },
 
       //server to run 
@@ -48,7 +65,7 @@ module.exports = function (grunt) {
             options: {
                port: 8000,
                base: {
-                  path: 'build'
+                  path: 'build/'
                }
             }
          }
@@ -65,9 +82,9 @@ module.exports = function (grunt) {
                   dest: '<%= path.html.dist %>',
                   filter: 'isFile',
                   flatten: true
-               },
-        ],
-         },
+                },
+               ],
+              },
          img: {
             files: [
           // includes files within path
@@ -77,44 +94,43 @@ module.exports = function (grunt) {
                   dest: '<%= path.img.dist %>',
                   flatten: true
                },
-        ],
-         },
-         js: {
+               ],
+              },
+          favicon: {
             files: [
-          // includes files within path
-               {
-                  expand: true,
-                  src: ['<%= path.js.src %>'],
-                  dest: '<%= path.js.dist %>',
-                  flatten: true
-               },
-        ],
-         }
-      },
+              {
+                expand: true,
+                src: 'src/favicon.ico',
+                dest: 'build/html', 
+                flatten: true
+              }
+            ]
+          }
+        },
 
       //watch sass files
       watch: {
          styles: {
             files: ['<%= path.css.all %>'],
-            tasks: ['sass'],
+            tasks: ['sass' ,'cssmin'],
             options: {
                spawn: false,
             },
          },
          html: {
             files: ['<%= path.html.all %>'],
-            tasks: ['copy:html'],
+            tasks: ['copy:html', 'copy:img'],
             options: {
                spawn: false,
             },
          },
-         js:{
-            files:['<%= path.js.all %>'],
-            tasks:['copy:js'],
+         js: {
+            files: ['<%= path.js.all %>'],
+            tasks: 'uglify',
             options: {
                spawn: false,
             },
-         },
+         }
       }
    });
 
@@ -123,10 +139,12 @@ module.exports = function (grunt) {
    grunt.loadNpmTasks('grunt-contrib-connect');
    grunt.loadNpmTasks('grunt-contrib-watch');
    grunt.loadNpmTasks('grunt-contrib-copy');
+   grunt.loadNpmTasks('grunt-contrib-cssmin');
+   grunt.loadNpmTasks('grunt-contrib-uglify');
 
    // Default task(s).
    grunt.registerTask('default', ['sass']);
-   grunt.registerTask('dev', ['sass', 'copy', 'watch']);
+   grunt.registerTask('dev', ['copy', 'sass', 'cssmin', 'uglify','connect','watch']);
    grunt.registerTask('build', ['copy', 'sass', 'watch'])
 
 };
