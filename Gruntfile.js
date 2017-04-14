@@ -65,7 +65,7 @@ module.exports = function (grunt) {
             options: {
                port: 8000,
                base: {
-                  path: 'build'
+                  path: 'build/'
                }
             }
          }
@@ -82,9 +82,9 @@ module.exports = function (grunt) {
                   dest: '<%= path.html.dist %>',
                   filter: 'isFile',
                   flatten: true
-               },
-        ],
-         },
+                },
+               ],
+              },
          img: {
             files: [
           // includes files within path
@@ -94,9 +94,19 @@ module.exports = function (grunt) {
                   dest: '<%= path.img.dist %>',
                   flatten: true
                },
-        ],
-         }
-      },
+               ],
+              },
+          favicon: {
+            files: [
+              {
+                expand: true,
+                src: 'src/favicon.ico',
+                dest: 'build/html', 
+                flatten: true
+              }
+            ]
+          }
+        },
 
       //watch sass files
       watch: {
@@ -134,7 +144,7 @@ module.exports = function (grunt) {
 
    // Default task(s).
    grunt.registerTask('default', ['sass']);
-   grunt.registerTask('dev', ['sass', 'cssmin', 'copy', 'uglify', 'watch']);
+   grunt.registerTask('dev', ['copy', 'sass', 'cssmin', 'uglify','connect','watch']);
    grunt.registerTask('build', ['copy', 'sass', 'watch'])
 
 };
