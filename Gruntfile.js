@@ -63,10 +63,7 @@ module.exports = function (grunt) {
       connect: {
          server: {
             options: {
-               port: 8000,
-               base: {
-                  path: 'build/'
-               }
+               port: 8000
             }
          }
       },
@@ -101,11 +98,21 @@ module.exports = function (grunt) {
               {
                 expand: true,
                 src: 'src/favicon.ico',
-                dest: 'build/html', 
+                dest: '', 
                 flatten: true
               }
             ]
-          }
+          },
+          finalHTML: {
+            files: [
+              {
+                expand: true,
+                src: 'src/html/index.html',
+                dest: '', 
+                flatten: true
+              }
+            ]
+          },
         },
 
       //watch sass files
