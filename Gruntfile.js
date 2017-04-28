@@ -105,6 +105,7 @@ module.exports = function (grunt) {
           },
           finalHTML: {
             files: [
+              //this is poor need to refactor this to make sense
               {
                 expand: true,
                 src: 'src/html/index.html',
