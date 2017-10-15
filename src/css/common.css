@@ -144,7 +144,35 @@ p {
     margin: 0 auto;
     margin-top: 30px; }
   #blogs p {
-    text-align: center; }
+    text-align: center;
+    padding-bottom: 10px; }
+  #blogs a {
+    color: #5FCF80;
+    text-decoration: none;
+    font-weight: bold; }
+
+#blog-content {
+  margin-top: 20px;
+  text-align: center;
+  margin-bottom: 100px; }
+  #blog-content p {
+    width: 900px;
+    padding-top: 20px;
+    margin: 0 auto; }
+  #blog-content .quotes {
+    text-align: center;
+    font-weight: bold;
+    font-style: italic; }
+  #blog-content ul {
+    color: #576366;
+    font-size: 24px;
+    padding-left: 100px; }
+    #blog-content ul li {
+      text-align: left;
+      width: 900px;
+      padding-top: 20px;
+      margin: 0 auto;
+      list-style-type: square; }
 
 #projects {
   margin-top: 20px;
@@ -259,6 +287,17 @@ slideDown
     width: 80%;
     margin: 0 auto;
     text-align: justify; }
+
+  #blog-content h2 {
+    font-size: 24px; }
+  #blog-content p {
+    width: 80%;
+    text-align: justify; }
+  #blog-content ul {
+    padding-left: 10px; }
+    #blog-content ul li {
+      width: 80%;
+      text-align: justify; }
 
   #projects .screen {
     width: 24%; }

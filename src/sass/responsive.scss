@@ -117,6 +117,22 @@ slideDown
          text-align: justify;
       }
    }
+   #blog-content {
+    h2 {
+        font-size: 24px;
+     }
+     p{
+        width: 80%;
+        text-align: justify;
+     }
+     ul {
+        padding-left: 10px;
+         li {
+            width: 80%;
+            text-align: justify;  
+         }
+     }
+  }
    #projects {
       .screen {
          width: 24%;

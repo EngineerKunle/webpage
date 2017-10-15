@@ -12,7 +12,7 @@ module.exports = function (grunt) {
          },
          html: {
             //will need to change the path of this if new page is needed
-            src: 'src/html/index.html',
+            src: 'src/html//**/*.html',
             dist: 'build/html/',
             all: 'src/html/**/*.html'
          },
